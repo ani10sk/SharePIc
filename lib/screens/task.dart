@@ -12,7 +12,7 @@ class NewClient extends StatefulWidget{
 }
 
 class _NewClientState extends State<NewClient> {
-  File image;
+  static File image;
   static List<DropdownMenuItem<String>> types=[
       DropdownMenuItem<String>(value:'End User',child:Text('End User')),
       DropdownMenuItem<String>(value:'Distributors',child:Text('Distributors')),
