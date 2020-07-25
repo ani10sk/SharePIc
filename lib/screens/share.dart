@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
 
 class Share extends StatefulWidget{
+  static const rout='chooseimage';
   @override
   _ShareState createState() => _ShareState();
 }

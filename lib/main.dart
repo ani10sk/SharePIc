@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shareme/screens/task.dart';
 import './screens/share.dart';
+import './screens/contacts.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +17,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:Share(),
+      home:NewClient(),
+      routes: {
+        Contacts.rout:(ctx)=>Contacts(),
+        Share.rout:(ctx)=>Share()
+      },
     );
   }
 }
