@@ -106,6 +106,18 @@ class _ShareState extends State<Share> {
             Center(
               child: FlatButton(
                 child:Text(
+                  'Set as logo',style:TextStyle(
+                    fontSize:15,fontWeight:FontWeight.bold
+                  ),
+                ),
+                onPressed:(){
+                  Navigator.of(context).pop(_image);
+                },
+              ),
+            ),
+            Center(
+              child: FlatButton(
+                child:Text(
                   'Share to all media',style:TextStyle(
                     fontSize:15,fontWeight:FontWeight.bold
                   ),

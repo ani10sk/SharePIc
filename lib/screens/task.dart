@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:geolocator/geolocator.dart';
@@ -11,6 +12,7 @@ class NewClient extends StatefulWidget{
 }
 
 class _NewClientState extends State<NewClient> {
+  File image;
   static List<DropdownMenuItem<String>> types=[
       DropdownMenuItem<String>(value:'End User',child:Text('End User')),
       DropdownMenuItem<String>(value:'Distributors',child:Text('Distributors')),
@@ -51,6 +53,12 @@ class _NewClientState extends State<NewClient> {
     var first=addresses.first;
     setState(() {
       addr.text=' ${first.addressLine}';
+    });
+  }
+
+  void modifypic(File im){
+    setState(() {
+      image=im;
     });
   }
 
@@ -286,7 +294,11 @@ class _NewClientState extends State<NewClient> {
                 padding:EdgeInsets.fromLTRB(0,5,0,0),
                 child: FlatButton(
                   onPressed:(){
-                    Navigator.of(context).pushNamed(Share.rout);
+                    Navigator.of(context).pushNamed(Share.rout).then((value){
+                      setState(() {
+                        image=value;
+                      });
+                    });
                   },
                   child: SizedBox(
                     height:30,
@@ -300,7 +312,15 @@ class _NewClientState extends State<NewClient> {
                   ),
                 ),
               ),
-              Icon(Icons.account_box,size:30,),
+              image==null?
+              Icon(Icons.account_box,size:30,):
+              SizedBox(
+                height:80,
+                width:80,
+                child: Image.file(
+                  image,fit:BoxFit.contain,
+                ),
+              ),
                 
             ],
           ),
